@@ -72,7 +72,7 @@
         this.searchQuery = ''
       },
       handleChange(event) {
-        console.log(event)
+        // console.log(event)
         this.searchQuery = event.target.value
       },
       selectGame(gameId) {
