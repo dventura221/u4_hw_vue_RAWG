@@ -1,10 +1,10 @@
 <template>
   <div class="card">
     <div class="image-wrapper">
-      <!-- Image Goes Here -->
+      <!-- <img :src="genre.image_background" alt="img"/> -->
     </div>
     <div class="info-wrapper flex-col">
-      <!-- Genre Name Goes Here -->
+      <!-- <h2> {{ genre.name }} </h2> -->
     </div>
   </div>
 </template>

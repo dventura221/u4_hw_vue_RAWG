@@ -8,23 +8,41 @@
 
     <div class="genres">
       <h2>Genres</h2>
-      <section class="container-grid"></section>
+      <section  class="container-grid" >
+        <div v-for="genre in genres" :key="genre.id">
+          <GenreCard :genre="genre"/>
+        </div>  
+      </section>
     </div>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
+  import GenreCard from '../components/GameCard.vue'
+  const API_KEY = process.env.VUE_APP_API_KEY
   export default {
     name: 'HomePage',
+    components: {
+      GenreCard
+    },
     data: () => ({
       genres: [],
       searchQuery: '',
       searchResults: [],
       searched: false
     }),
-    mounted() {},
+    mounted: function() {
+      this.getGenres()
+    },
     methods: {
-      async getGenres() {},
+      async getGenres() {
+        const res = await axios.get(
+          `https://api.rawg.io/api/genres?key=${API_KEY}`
+        )
+        console.log(res.data.results)
+        this.genres = res.data.results
+      },
       async getSearchResults(e) {
         e.preventDefault()
       },
