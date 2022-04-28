@@ -6,6 +6,7 @@
     </div>
     <div class="info-wrapper flex-col">
       <h3>{{ result.name }}</h3>
+      <h4>Rating: {{result.rating}}/5</h4>
     </div>
   </div>
 </template>

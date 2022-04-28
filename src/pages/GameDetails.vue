@@ -39,7 +39,7 @@
         const details = await axios.get(
           `https://api.rawg.io/api/games/${this.$route.params.game_id}?key=${API_KEY}`
         )
-        console.log('Details', details.data)
+        //console.log('Details', details.data)
         this.gameDetails = details.data
       },
       backHome() {
