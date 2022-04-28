@@ -77,7 +77,7 @@
       },
       selectGame(gameId) {
         console.log(gameId)
-        this.$router.push(`/detail/${gameId}`)
+        this.$router.push(`/details/${gameId}`)
       }
     }
   }
