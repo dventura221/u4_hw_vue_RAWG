@@ -54,6 +54,11 @@
       },
       async getSearchResults(e) {
         e.preventDefault()
+        const results = await axios.get(
+          `https://api.rawg.io/api/games?key=${API_KEY}&search=${this.searchQuery}`
+        )
+        this.searchResults = results.data.results
+        //console.log(results.data.results)
       },
       handleChange(event) {
         console.log(event)
