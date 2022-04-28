@@ -11,6 +11,7 @@
 
 <script>
   export default {
-    name: 'GenreCard'
+    name: 'GenreCard',
+    props: ['genre'],
   }
 </script>

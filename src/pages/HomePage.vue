@@ -12,7 +12,11 @@
         <button>Submit</button>
       </form>
       <h2>Search Results</h2>
-      <section class="search-results container-grid"></section>
+      <section class="search-results container-grid">
+        <div v-for="result in searchResults" :key="result.id" >
+          <GameCard :result="result"/>
+        </div>  
+      </section>
     </div>
 
     <div v-if="!searched" class="genres">
@@ -28,12 +32,14 @@
 
 <script>
   import axios from 'axios'
-  import GenreCard from '../components/GameCard.vue'
+  import GenreCard from '../components/GenreCard.vue'
+  import GameCard from '../components/GameCard.vue'
   const API_KEY = process.env.VUE_APP_API_KEY
   export default {
     name: 'HomePage',
     components: {
-      GenreCard
+      GenreCard,
+      GameCard
     },
     data: () => ({
       genres: [],
@@ -49,7 +55,7 @@
         const res = await axios.get(
           `https://api.rawg.io/api/genres?key=${API_KEY}`
         )
-        console.log(res.data.results)
+        //console.log(res.data.results)
         this.genres = res.data.results
       },
       async getSearchResults(e) {
@@ -58,7 +64,7 @@
           `https://api.rawg.io/api/games?key=${API_KEY}&search=${this.searchQuery}`
         )
         this.searchResults = results.data.results
-        //console.log(results.data.results)
+        console.log(results.data.results)
         this.searched = true
         this.searchQuery = ''
       },
