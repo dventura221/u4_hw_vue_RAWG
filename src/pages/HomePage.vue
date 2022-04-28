@@ -15,7 +15,7 @@
       <section class="search-results container-grid"></section>
     </div>
 
-    <div class="genres">
+    <div v-if="!searched" class="genres">
       <h2>Genres</h2>
       <section  class="container-grid" >
         <div v-for="genre in genres" :key="genre.id">
@@ -59,6 +59,8 @@
         )
         this.searchResults = results.data.results
         //console.log(results.data.results)
+        this.searched = true
+        this.searchQuery = ''
       },
       handleChange(event) {
         console.log(event)
