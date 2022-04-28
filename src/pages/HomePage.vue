@@ -1,7 +1,16 @@
 <template>
   <div>
     <div class="search">
-      <!-- Search Form Goes Here -->
+      <form @submit="getSearchResults">
+        <input
+          type="text"
+          :value="searchQuery"
+          placeholder="Search Games"
+          name="search"
+          @input="handleChange"
+        />
+        <button>Submit</button>
+      </form>
       <h2>Search Results</h2>
       <section class="search-results container-grid"></section>
     </div>
@@ -48,6 +57,7 @@
       },
       handleChange(event) {
         console.log(event)
+        this.searchQuery = event.target.value
       },
       selectGame(gameId) {
         console.log(gameId)
