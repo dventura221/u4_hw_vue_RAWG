@@ -14,7 +14,10 @@
       <h2>Search Results</h2>
       <section class="search-results container-grid">
         <div v-for="result in searchResults" :key="result.id" >
-          <GameCard :result="result"/>
+          <GameCard 
+            :result="result" 
+            @click="selectGame(result.id)"
+            />
         </div>  
       </section>
     </div>
@@ -74,6 +77,7 @@
       },
       selectGame(gameId) {
         console.log(gameId)
+        this.$router.push(`/detail/${gameId}`)
       }
     }
   }
