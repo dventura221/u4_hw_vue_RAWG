@@ -21,7 +21,6 @@
         </div>  
       </section>
     </div>
-
     <div v-if="!searched" class="genres">
       <h2>Genres</h2>
       <section  class="container-grid" >

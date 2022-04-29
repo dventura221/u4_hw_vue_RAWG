@@ -2,7 +2,6 @@
   <div class="sort-bar">
     <h3 class="genres">Sort by Rating:</h3>
     <select @change="sortGames()" name="sortBy" id="select" v-model="sortBy">
-      
       <option value="Highest"
       >Highest to Lowest</option>
       <option value="Lowest" 
@@ -31,7 +30,7 @@
     },
     data: () => ({
       games: [],
-      sortBy: "Highest"
+      sortBy: "Highest",
     }),
     mounted() {
       this.getGamesByGenre()
@@ -56,5 +55,5 @@
         })}
       }
     }
-  }  
+  }
 </script>
