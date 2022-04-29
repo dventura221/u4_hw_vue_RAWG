@@ -58,7 +58,6 @@
         const res = await axios.get(
           `https://api.rawg.io/api/genres?key=${API_KEY}`
         )
-        //console.log(res.data.results)
         this.genres = res.data.results
       },
       async getSearchResults(e) {
@@ -66,7 +65,6 @@
         const results = await axios.get(
           `https://api.rawg.io/api/games?key=${API_KEY}&search=${this.searchQuery}`
         )
-        //console.log(results.data.results)
         this.searchResults = results.data.results
         this.searched = true
         this.searchQuery = ''

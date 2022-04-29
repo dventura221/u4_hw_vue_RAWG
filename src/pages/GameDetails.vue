@@ -13,7 +13,7 @@
         <h3>Rating: {{gameDetails.rating}}/5</h3>
         <h3>Rating Breakdown:</h3>
         <div v-for="score in gameDetails.ratings" :key="score.id">
-          <p> - {{score.title}}: {{score.count}} at {{score.percent}}% </p>
+          <p> - {{score.count}} said '{{score.title}}' - {{score.percent}}%</p>
         </div>  
         <p>Description: {{gameDetails.description_raw}}</p>
       </div>

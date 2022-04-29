@@ -55,6 +55,7 @@ input {
 
 button {
   padding: 0.2em 1em;
+  margin-top: 10px;
   border: 0;
   border-radius: 4px;
   font-size: 1.1rem;
@@ -129,4 +130,16 @@ button {
 }
 .space {
   justify-content: space-between;
+}
+
+.sort-bar {
+  text-align: center;
+}
+
+#select {
+  padding: 0.2em 1em;
+  border: 0;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
 }
