@@ -1,4 +1,10 @@
 <template>
+  <div class="sort-bar">
+    <select name="sortBy" id="select" v-model="sortBy">
+      <option value="Highest">Rating: Highest to Lowest</option>
+      <option value="Lowest">Rating: Lowest to Highest</option>
+    </select>
+  </div>  
   <div className="container-grid">
     <div v-for="result in games" :key="result.id" >
       <GameCard 
@@ -20,24 +26,37 @@
       GameCard
     },
     data: () => ({
-      games: []
+      games: [],
+      sortBy: "Highest"
     }),
     mounted() {
       this.getGamesByGenre()
     },
     methods: {
       async getGamesByGenre() {
-        // Get Genre Id here
         const res = await axios.get(
         `https://api.rawg.io/api/games?genres=${this.$route.params.genre_id}&key=${API_KEY}`
         )
-        console.log(res)
         this.games = res.data.results
       },
       selectGame(gameId) {
-        console.log(gameId)
         this.$router.push(`/details/${gameId}`)
-      },
+      }
+    },
+    computed: {
+      sortedArray() {
+        let sortedGames = this.games
+        if (this.sortBy == "Highest") {
+          sortedGames = sortedGames.sort((a, b) => {
+            return b.rating - a.rating
+          })
+        } else if (this.sortBy == "Lowest") {
+          sortedGames = sortedGames.sort((a, b) => {
+            return a.rating - b.rating
+          })
+        }
+      return sortedGames
+      }
     }
-  }
+  }  
 </script>
